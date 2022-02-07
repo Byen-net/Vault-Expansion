@@ -27,7 +27,9 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
@@ -51,7 +53,7 @@ public class VaultEcoHook implements VaultHook {
     private final String b;
     private final String t;
     private final String q;
-    private final DecimalFormat format = new DecimalFormat("#,###");
+    private final DecimalFormat format = new DecimalFormat("#,###.##", new DecimalFormatSymbols(Locale.ITALIAN));
     private final boolean baltopEnabled;
     private final int taskDelay;
     private final int topSize;
@@ -90,7 +92,7 @@ public class VaultEcoHook implements VaultHook {
 
         if (baltopEnabled) {
             this.balTopTask = new BalTopTask(this, perms);
-            balTopTask.runTaskTimerAsynchronously(expansion.getPlaceholderAPI(), 20, 20 * taskDelay);
+            balTopTask.runTaskTimerAsynchronously(expansion.getPlaceholderAPI(), 20, 20L * taskDelay);
         }
 
         return eco != null;
