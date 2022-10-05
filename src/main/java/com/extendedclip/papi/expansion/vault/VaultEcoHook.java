@@ -218,7 +218,7 @@ public class VaultEcoHook implements VaultHook {
     }
 
     private String format(double d) {
-        return eco == null ? "0" : eco.format(d);
+        return eco == null ? "0" : format.format(d);
     }
 
     private String fixMoney(double d) {
