@@ -227,7 +227,8 @@ public class VaultEcoHook implements VaultHook {
             return format(d);
         }
         if (d < 1000000L) {
-            return format(d / 1000L) + k;
+            return format(d);
+            //return format(d / 1000L) + k;
         }
         if (d < 1000000000L) {
             return format(d / 1000000L) + m;
